@@ -1,35 +1,48 @@
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9f9f9;
-  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
 }
 
-header {
-  background: #0056b3;
-  padding: 15px 0;
-  text-align: center;
+/* Welcome Screen */
+#welcome-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-header h1 {
-  margin: 0;
-  font-size: 24px;
-  letter-spacing: 1px;
-}
-
-.intro {
-  padding: 15px;
   text-align: center;
+}
+
+#welcome-screen h1 {
+  font-size: 2.5rem;
+}
+
+#welcome-screen button {
+  margin-top: 20px;
+  padding: 12px 25px;
   font-size: 16px;
-  color: #555;
+  border: none;
+  border-radius: 25px;
+  background: #00c853;
+  color: white;
+  cursor: pointer;
+}
+
+#welcome-screen button:hover {
+  background: #00a844;
+}
+
+/* Map Section */
+#map-container {
+  display: none;
+  padding: 20px;
 }
 
 #map {
   height: 600px;
-  width: 90%;
-  margin: 20px auto;
-  border: 2px solid #0056b3;
-  border-radius: 8px;
+  width: 100%;
+  border-radius: 10px;
 }
