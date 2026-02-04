@@ -2,45 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>EV Charging Stations in Kochi</title>
+  <title>EV Finder – Kochi</title>
 
   <!-- Leaflet CSS -->
   <link
     rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
   />
 
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header>
-    <div class="navbar">
-      <h1>⚡ EV Charging Stations – Kochi</h1>
-    </div>
-  </header>
+  <!-- Welcome Screen -->
+  <div id="welcome-screen">
+    <h1>Welcome to EV Finder</h1>
+    <p>Locate nearby electric vehicle charging stations in Kochi city.</p>
+    <button onclick="getUserLocation()">Find Nearby Charging Stations</button>
+  </div>
 
-  <!-- Intro text -->
-  <section class="intro">
-    <p>
-      This interactive map shows the locations of public EV charging stations in Kochi city.
-      People can use this to find nearby charging points for electric vehicles.
-    </p>
-  </section>
-
-  <!-- Map -->
-  <div id="map"></div>
+  <!-- Map Screen -->
+  <div id="map-container">
+    <h2>Nearest EV Charging Stations</h2>
+    <div id="map"></div>
+  </div>
 
   <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Custom JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="script.js"></script>
 
 </body>
 </html>
+
+
 
 
 
