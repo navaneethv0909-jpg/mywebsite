@@ -1,18 +1,21 @@
-var map = L.map('map').setView([9.9312, 76.2673], 12);
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kochi EV Charging Stations</title>
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '© OpenStreetMap'
-}).addTo(map);
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-var stations = [
-  { name: "KSEB EV Charging Station", lat: 9.9391, lon: 76.2705 },
-  { name: "MG Road EV Charger", lat: 9.9716, lon: 76.2850 }
-];
+  <div id="map"></div>
 
-stations.forEach(function(station) {
-  L.marker([station.lat, station.lon])
-    .addTo(map)
-    .bindPopup(station.name);
-});
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+
 
 
