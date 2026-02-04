@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>My First Website</title>
-</head>
-<body>
-  <h1>Hello World 🌍</h1>
-  <p>This site is hosted on GitHub Pages.</p>
-</body>
-</html>
+var map = L.map('map').setView([9.9312, 76.2673], 12);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+var stations = [
+  { name: "KSEB EV Charging Station", lat: 9.9391, lon: 76.2705 },
+  { name: "MG Road EV Charger", lat: 9.9716, lon: 76.2850 }
+];
+
+stations.forEach(function(station) {
+  L.marker([station.lat, station.lon])
+    .addTo(map)
+    .bindPopup(station.name);
+});
+
+
