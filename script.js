@@ -1,22 +1,24 @@
 let map;
 
-// EV Charging Stations (sample data – you can add more)
 const stations = [
   { name: "MG Road EV Charger", lat: 9.9816, lon: 76.2767 },
   { name: "Kakkanad EV Charger", lat: 10.0159, lon: 76.3419 },
   { name: "Edappally EV Charger", lat: 10.0261, lon: 76.3086 }
 ];
 
-// Step 1: Get user location
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("locateBtn").addEventListener("click", getUserLocation);
+});
+
 function getUserLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showMap, showError);
-  } else {
+  if (!navigator.geolocation) {
     alert("Geolocation is not supported by your browser.");
+    return;
   }
+
+  navigator.geolocation.getCurrentPosition(showMap, locationError);
 }
 
-// Step 2: Show map & nearest stations
 function showMap(position) {
   const userLat = position.coords.latitude;
   const userLon = position.coords.longitude;
@@ -33,24 +35,21 @@ function showMap(position) {
   // User marker
   L.marker([userLat, userLon])
     .addTo(map)
-    .bindPopup("<b>You are here</b>")
+    .bindPopup("<b>Your Location</b>")
     .openPopup();
 
-  // EV stations
+  // Charging stations
   stations.forEach(station => {
     L.marker([station.lat, station.lon])
       .addTo(map)
       .bindPopup(
         `<b>${station.name}</b><br>
-         <a href="https://www.google.com/maps?q=${station.lat},${station.lon}" target="_blank">
-         Navigate</a>`
+        <a href="https://www.google.com/maps?q=${station.lat},${station.lon}" target="_blank">
+        Navigate</a>`
       );
   });
 }
 
-// Error handling
-function showError() {
-  alert("Location access denied. Please allow location permission.");
+function locationError(error) {
+  alert("Please allow location access to find nearby charging stations.");
 }
-
-
